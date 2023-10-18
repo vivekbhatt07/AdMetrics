@@ -1,4 +1,4 @@
-import Pie from "./Pie";
 import Table from "./BasicTable";
+import DoughnutProvider from "./DoughnutProvider";
 
-export { Pie, Table };
+export { Table, DoughnutProvider };

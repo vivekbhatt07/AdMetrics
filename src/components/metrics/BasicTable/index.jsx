@@ -16,6 +16,12 @@ export default function BasicTable({ bodyData }) {
     }
   }
 
+  const getSum = (title) => {
+    return bodyData.reduce((sum, item) => {
+      return item[title] + sum;
+    }, 0);
+  };
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -41,7 +47,7 @@ export default function BasicTable({ bodyData }) {
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {item.campaigns}
+                {item.campaigns ?? item.group}
               </TableCell>
               <TableCell align="right">{item.clicks}</TableCell>
               <TableCell align="right">{item.cost}</TableCell>
@@ -49,6 +55,15 @@ export default function BasicTable({ bodyData }) {
               <TableCell align="right">{item.revenue}</TableCell>
             </TableRow>
           ))}
+          <TableRow>
+            <TableCell component="th" scope="row">
+              Total
+            </TableCell>
+            <TableCell align="right">{getSum("clicks")}</TableCell>
+            <TableCell align="right">{getSum("cost")}</TableCell>
+            <TableCell align="right">{getSum("conversions")}</TableCell>
+            <TableCell align="right">{getSum("revenue")}</TableCell>
+          </TableRow>
         </TableBody>
       </Table>
     </TableContainer>
