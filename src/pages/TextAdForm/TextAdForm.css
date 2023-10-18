@@ -1,0 +1,35 @@
+.textAdForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "A B"
+    "C B"
+    "D E"
+    "F F";
+  column-gap: 32px;
+  row-gap: 16px;
+}
+
+.headOne {
+  grid-area: A;
+}
+
+.headTwo {
+  grid-area: C;
+}
+
+.descriptionOne {
+  grid-area: B;
+}
+
+.businessName {
+  grid-area: D;
+}
+
+.buttonLabel {
+  grid-area: E;
+}
+
+.websiteUrl {
+  grid-area: F;
+}
