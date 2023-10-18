@@ -4,7 +4,7 @@ import "./App.css";
 
 function App() {
   return (
-    <div>
+    <div className="min-h-screen">
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/createAd" element={<CreateAds />} />
