@@ -10,28 +10,30 @@ const CreateAds = () => {
         title="Create Ads"
         style={{ height: "100%" }}
         bodyStyle={{
-          padding: "16px",
+          padding: "64px 16px 16px",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
           height: "100%",
         }}
       >
-        <div className="flex mx-auto gap-12">
-          <div className="flex basis-1/2 flex-col outline rounded-md p-1 relative">
-            <Checkbox sx={{ position: "absolute" }} />
-            <div className="w-[200px] h-[250px] bg-[#ddd] mt-10 mr-12 ml-12"></div>
-            <div className="flex flex-col items-center bg-[#aaa] rounded-bl-md rounded-br-md p-4">
-              <span>Create</span>
-              <h3 style={{ fontSize: "20px", fontWeight: 600 }}>Text Ad</h3>
+        <div className="flex-1 mx-auto">
+          <div className="flex gap-12">
+            <div className="flex basis-1/2 flex-col outline rounded-md p-1 relative">
+              <Checkbox sx={{ position: "absolute" }} />
+              <div className="w-[200px] h-[250px] bg-[#ddd] mt-10 mr-12 ml-12"></div>
+              <div className="flex flex-col items-center bg-[#aaa] rounded-bl-md rounded-br-md p-4">
+                <span>Create</span>
+                <h3 style={{ fontSize: "20px", fontWeight: 600 }}>Text Ad</h3>
+              </div>
             </div>
-          </div>
-          <div className="flex basis-1/2 flex-col outline rounded-md p-1 relative">
-            <Checkbox sx={{ position: "absolute" }} />
-            <div className="w-[200px] h-[250px] bg-[#ddd] mt-10 mr-12 ml-12"></div>
-            <div className="flex flex-col items-center bg-[#aaa] rounded-bl-md rounded-br-md p-4">
-              <span>Create</span>
-              <h3 style={{ fontSize: "20px", fontWeight: 600 }}>Text Ad</h3>
+            <div className="flex basis-1/2 flex-col outline rounded-md p-1 relative">
+              <Checkbox sx={{ position: "absolute" }} />
+              <div className="w-[200px] h-[250px] bg-[#ddd] mt-10 mr-12 ml-12"></div>
+              <div className="flex flex-col items-center bg-[#aaa] rounded-bl-md rounded-br-md p-4">
+                <span>Create</span>
+                <h3 style={{ fontSize: "20px", fontWeight: 600 }}>Text Ad</h3>
+              </div>
             </div>
           </div>
         </div>
