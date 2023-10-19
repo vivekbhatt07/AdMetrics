@@ -1,0 +1,53 @@
+.mediaAdForm {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 0.5fr 1fr;
+  grid-template-areas:
+    "a a b b"
+    "c c b b"
+    "d e e f"
+    "g g g g"
+    "h h i i"
+    "j j j j";
+  column-gap: 32px;
+  row-gap: 16px;
+}
+
+.headingOne {
+  grid-area: a;
+}
+
+.headingTwo {
+  grid-area: c;
+}
+
+.busiName {
+  grid-area: h;
+}
+
+.webUrl {
+  grid-area: j;
+}
+
+.videoUrl {
+  grid-area: g;
+}
+
+.detailOne {
+  grid-area: b;
+}
+
+.btnLabel {
+  grid-area: i;
+}
+
+.lmi {
+  grid-area: d;
+}
+
+.pmi {
+  grid-area: e;
+}
+
+.smi {
+  grid-area: f;
+}

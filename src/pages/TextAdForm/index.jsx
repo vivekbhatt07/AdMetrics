@@ -1,7 +1,11 @@
 import React from "react";
 import { PrimaryContainer } from "../../components/containers";
 import { PageContainer } from "../../layout";
-import { BasicInput, TextAreaInput } from "../../components/inputs";
+import {
+  BasicInput,
+  SelectInput,
+  TextAreaInput,
+} from "../../components/inputs";
 import { Button } from "@mui/material";
 import "./TextAdForm.css";
 
