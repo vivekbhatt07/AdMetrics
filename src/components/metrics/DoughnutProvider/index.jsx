@@ -31,13 +31,23 @@ function DoughnutProvider({
       display: true,
       text: "Doughnut Chart",
     },
-    legend: {
-      display: true,
-      position: "top",
+    plugins: {
+      legend: {
+        display: true, // Show the legend
+        position: "right", // Position the legend at the top
+        labels: {
+          boxWidth: 50,
+          boxHeight: 20,
+          useBorderRadius: true,
+          borderRadius: 16,
+        },
+      },
+      tooltip: {
+        mode: "index", // Tooltip display mode
+        intersect: false, // Show tooltips at all points in the dataset
+      },
     },
-    tooltips: {
-      enabled: false,
-    },
+
     scales: {
       yAxes: [
         {
@@ -51,7 +61,7 @@ function DoughnutProvider({
 
   return (
     <div style={{ ...style }}>
-      <Doughnut data={data} options={options} />;
+      <Doughnut data={data} options={options} />
     </div>
   );
 }

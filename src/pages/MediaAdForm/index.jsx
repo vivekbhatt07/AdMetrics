@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { PrimaryContainer } from "../../components/containers";
 import { PageContainer } from "../../layout";
 import {
@@ -8,8 +8,32 @@ import {
 } from "../../components/inputs";
 import { Button } from "@mui/material";
 import "./MediaAdForm.css";
+import { useNavigate } from "react-router-dom";
+import LottieProvider from "../../components/LottieProvider";
+import ModalProvider from "../../components/ModalProvider";
+import SubmitLottie from "../../assets/Lottie/SubmitLottie/submitLottie.json";
 
 const MediaAdForm = () => {
+  const [isSubmit, setIsSubmit] = useState(false);
+  const openSubmit = () => setIsSubmit(true);
+  const closeSubmit = () => setIsSubmit(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    let timerId;
+    if (isSubmit) {
+      timerId = setTimeout(() => {
+        setIsSubmit(false);
+        navigate("/createAd");
+      }, 1000);
+    }
+    return () => {
+      if (timerId) {
+        clearTimeout(timerId);
+      }
+    };
+  }, [isSubmit]);
+
   return (
     <PageContainer>
       <PrimaryContainer
@@ -81,6 +105,7 @@ const MediaAdForm = () => {
           <div className="flex gap-3">
             <Button
               variant="contained"
+              onClick={() => navigate(-1)}
               sx={{
                 textTransform: "capitalize",
                 borderRadius: "2px",
@@ -108,9 +133,21 @@ const MediaAdForm = () => {
                   boxShadow: "none",
                 },
               }}
+              onClick={() => {
+                openSubmit();
+              }}
             >
               Submit
             </Button>
+            <ModalProvider isOpen={isSubmit} closeModal={closeSubmit}>
+              <div className="flex flex-col gap-1 mx-auto my-auto">
+                <LottieProvider
+                  lottieAsset={SubmitLottie}
+                  style={{ width: "70px", height: "70px" }}
+                />
+                <span>Submitted</span>
+              </div>
+            </ModalProvider>
           </div>
         </div>
       </PrimaryContainer>
