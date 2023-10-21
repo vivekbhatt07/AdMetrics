@@ -1,4 +1,4 @@
-# SOCIOBEE
+# ADMETRICS
 
 ## Live Link - https://admetrics.netlify.app/
 
@@ -14,8 +14,6 @@ A social media website where you can connect with your friends!
 3. npm install
 4. npm run dev
 ```
-
-![Alt text](image.png)
 
 ## Built with -
 
