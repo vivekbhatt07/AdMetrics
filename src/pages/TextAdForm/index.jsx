@@ -40,12 +40,13 @@ const TextAdForm = () => {
         title="Create Text & Media"
         style={{ height: "100%" }}
         bodyStyle={{
-          padding: "16px",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
           height: "100%",
         }}
+        headStyle="border-0"
+        bodyClass="gap-4 p-4"
       >
         <form className="textAdForm">
           <BasicInput
@@ -74,13 +75,14 @@ const TextAdForm = () => {
             className="descriptionOne"
             style={{ height: "100%" }}
           />
-          <BasicInput
+
+          <SelectInput
             labelText="Button Label"
             placeholderText="Select a label that best suits your ad"
             className="buttonLabel"
           />
         </form>
-        <div className="flex justify-end">
+        <div className="flex justify-center sm:justify-end">
           <div className="flex gap-3">
             <Button
               variant="contained"

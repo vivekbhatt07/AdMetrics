@@ -11,7 +11,7 @@ const PrimaryContainer = ({
 }) => {
   return (
     <div
-      className={`flex flex-col border border-[#ddd] rounded-sm bg-[#fff]`}
+      className={`flex flex-col border border-[#ddd] rounded-md bg-[#fff]`}
       style={{ ...style }}
     >
       <div
@@ -19,7 +19,7 @@ const PrimaryContainer = ({
           headStyle ? headStyle : "border-b"
         }`}
       >
-        <h3 className="capitalize">{title}</h3>
+        <h3 className="capitalize font-medium text-[#333d47]">{title}</h3>
         <div className="flex">{titleProps}</div>
       </div>
       <div style={{ ...bodyStyle }} className={`${bodyClass}`}>

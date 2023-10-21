@@ -16,41 +16,17 @@ export default function BasicTable({ bodyData }) {
     sortOrder: "",
     isAsc: false,
   });
-  console.log(sortData);
 
   let filteredData = bodyData;
 
   if (sortData.isSort) {
-    if (
-      typeof filteredData[0][sortData.sortType] === "string" &&
-      sortData.sortOrder === "asc"
-    ) {
-      console.log("asc");
-      filteredData = filteredData.sort();
-    }
-
     filteredData = filteredData.sort((a, b) => {
-      if (
-        typeof a[sortData.sortType] === "string" &&
-        sortData.sortOrder === "dsc"
-      ) {
-        if (a[sortData.sortType] < b[sortData.sortType]) {
-          return 1;
-        } else if (a[sortData.sortType] == b[sortData.sortType]) {
-          return 0;
-        } else {
-          return -1;
-        }
-      }
-
+      let x = a[sortData.sortType];
+      let y = b[sortData.sortType];
       if (sortData.sortOrder === "asc") {
-        if (typeof a[sortData.sortType] === "number") {
-          return a[sortData.sortType] - b[sortData.sortType];
-        }
-      } else if (sortData.sortOrder === "dsc") {
-        if (typeof a[sortData.sortType] === "number") {
-          return b[sortData.sortType] - a[sortData.sortType];
-        }
+        return x == y ? 0 : x > y ? 1 : -1;
+      } else {
+        return x == y ? 0 : x < y ? 1 : -1;
       }
     });
   }
@@ -61,8 +37,6 @@ export default function BasicTable({ bodyData }) {
     }
   }
 
-  console.log(filteredData);
-
   const getSum = (title) => {
     return bodyData.reduce((sum, item) => {
       return item[title] + sum;
@@ -72,9 +46,9 @@ export default function BasicTable({ bodyData }) {
   return (
     <TableContainer
       component={Paper}
-      sx={{ borderRadius: "0", boxShadow: "none" }}
+      sx={{ borderRadius: "6px", boxShadow: "none" }}
     >
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table aria-label="simple table">
         <TableHead>
           <TableRow>
             {headRow.map((item, index) => {
@@ -83,8 +57,9 @@ export default function BasicTable({ bodyData }) {
                   key={index}
                   sx={{
                     textTransform: "capitalize",
-                    fontWeight: "medium",
+                    fontWeight: "500",
                     padding: "0",
+                    color: "#333d47",
                   }}
                   align={index === 0 ? "left" : "right"}
                 >
@@ -99,7 +74,9 @@ export default function BasicTable({ bodyData }) {
                       });
                     }}
                   >
-                    <div className="select-none flex-1">{item}</div>
+                    <div className="select-none flex-1 text-[#333d47] font-medium">
+                      {item}
+                    </div>
                     <SortAction sortData={sortData} actionType={item} />
                   </div>
                 </TableCell>
@@ -133,7 +110,7 @@ export default function BasicTable({ bodyData }) {
             </TableRow>
           ))}
           <TableRow sx={{ backgroundColor: "#fafafa" }}>
-            <TableCell component="th" scope="row">
+            <TableCell component="th" scope="row" sx={{ color: "#6c737b" }}>
               Total
             </TableCell>
             <TableCell align="right" sx={{ color: "#6c737b" }}>
