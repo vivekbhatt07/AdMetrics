@@ -5,7 +5,7 @@ const PageContainer = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <div className="px-8 py-4 h-[92vh]">{children}</div>
+      <div className="px-8 py-4 sm:h-[92vh] bg-[#fafafa]">{children}</div>
     </div>
   );
 };

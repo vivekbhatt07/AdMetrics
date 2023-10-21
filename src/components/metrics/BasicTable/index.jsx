@@ -16,14 +16,52 @@ export default function BasicTable({ bodyData }) {
     sortOrder: "",
     isAsc: false,
   });
-
   console.log(sortData);
+
+  let filteredData = bodyData;
+
+  if (sortData.isSort) {
+    if (
+      typeof filteredData[0][sortData.sortType] === "string" &&
+      sortData.sortOrder === "asc"
+    ) {
+      console.log("asc");
+      filteredData = filteredData.sort();
+    }
+
+    filteredData = filteredData.sort((a, b) => {
+      if (
+        typeof a[sortData.sortType] === "string" &&
+        sortData.sortOrder === "dsc"
+      ) {
+        if (a[sortData.sortType] < b[sortData.sortType]) {
+          return 1;
+        } else if (a[sortData.sortType] == b[sortData.sortType]) {
+          return 0;
+        } else {
+          return -1;
+        }
+      }
+
+      if (sortData.sortOrder === "asc") {
+        if (typeof a[sortData.sortType] === "number") {
+          return a[sortData.sortType] - b[sortData.sortType];
+        }
+      } else if (sortData.sortOrder === "dsc") {
+        if (typeof a[sortData.sortType] === "number") {
+          return b[sortData.sortType] - a[sortData.sortType];
+        }
+      }
+    });
+  }
 
   for (let key in bodyData[0]) {
     if (key !== "id") {
       headRow.push(key);
     }
   }
+
+  console.log(filteredData);
 
   const getSum = (title) => {
     return bodyData.reduce((sum, item) => {
@@ -56,7 +94,7 @@ export default function BasicTable({ bodyData }) {
                       setSortData({
                         isSort: true,
                         sortType: item,
-                        sortOrder: sortData.isAsc ? "asc" : "dsc",
+                        sortOrder: sortData.isAsc ? "dsc" : "asc",
                         isAsc: !sortData.isAsc,
                       });
                     }}
@@ -70,7 +108,7 @@ export default function BasicTable({ bodyData }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {bodyData.map((item) => (
+          {filteredData.map((item) => (
             <TableRow
               key={item.id}
               sx={{
