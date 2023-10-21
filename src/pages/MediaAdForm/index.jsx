@@ -47,6 +47,7 @@ const MediaAdForm = () => {
           height: "100%",
         }}
         headStyle="border-0"
+        bodyClass="gap-4 p-4"
       >
         <form className="mediaAdForm">
           <BasicInput
@@ -101,7 +102,7 @@ const MediaAdForm = () => {
             className="videoUrl"
           />
         </form>
-        <div className="flex justify-end">
+        <div className="flex justify-center sm:justify-end">
           <div className="flex gap-3">
             <Button
               variant="contained"

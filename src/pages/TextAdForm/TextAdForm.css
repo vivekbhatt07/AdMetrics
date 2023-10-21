@@ -1,35 +1,42 @@
 .textAdForm {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    "A B"
-    "C B"
-    "D E"
-    "F F";
-  column-gap: 32px;
   row-gap: 16px;
 }
 
-.headOne {
-  grid-area: A;
-}
+@media (min-width: 1024px) {
+  .textAdForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "A B"
+      "C B"
+      "D E"
+      "F F";
+    column-gap: 32px;
+    row-gap: 16px;
+  }
 
-.headTwo {
-  grid-area: C;
-}
+  .headOne {
+    grid-area: A;
+  }
 
-.descriptionOne {
-  grid-area: B;
-}
+  .headTwo {
+    grid-area: C;
+  }
 
-.businessName {
-  grid-area: D;
-}
+  .descriptionOne {
+    grid-area: B;
+  }
 
-.buttonLabel {
-  grid-area: E;
-}
+  .businessName {
+    grid-area: D;
+  }
 
-.websiteUrl {
-  grid-area: F;
+  .buttonLabel {
+    grid-area: E;
+  }
+
+  .websiteUrl {
+    grid-area: F;
+  }
 }

@@ -1,53 +1,60 @@
 .mediaAdForm {
   display: grid;
-  grid-template-columns: 1fr 0.5fr 0.5fr 1fr;
-  grid-template-areas:
-    "a a b b"
-    "c c b b"
-    "d e e f"
-    "g g g g"
-    "h h i i"
-    "j j j j";
-  column-gap: 32px;
   row-gap: 16px;
 }
 
-.headingOne {
-  grid-area: a;
-}
+@media (min-width: 1024px) {
+  .mediaAdForm {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 0.5fr 1fr;
+    grid-template-areas:
+      "a a b b"
+      "c c b b"
+      "d e e f"
+      "g g g g"
+      "h h i i"
+      "j j j j";
+    column-gap: 32px;
+    row-gap: 16px;
+  }
 
-.headingTwo {
-  grid-area: c;
-}
+  .headingOne {
+    grid-area: a;
+  }
 
-.busiName {
-  grid-area: h;
-}
+  .headingTwo {
+    grid-area: c;
+  }
 
-.webUrl {
-  grid-area: j;
-}
+  .busiName {
+    grid-area: h;
+  }
 
-.videoUrl {
-  grid-area: g;
-}
+  .webUrl {
+    grid-area: j;
+  }
 
-.detailOne {
-  grid-area: b;
-}
+  .videoUrl {
+    grid-area: g;
+  }
 
-.btnLabel {
-  grid-area: i;
-}
+  .detailOne {
+    grid-area: b;
+  }
 
-.lmi {
-  grid-area: d;
-}
+  .btnLabel {
+    grid-area: i;
+  }
 
-.pmi {
-  grid-area: e;
-}
+  .lmi {
+    grid-area: d;
+  }
 
-.smi {
-  grid-area: f;
+  .pmi {
+    grid-area: e;
+  }
+
+  .smi {
+    grid-area: f;
+  }
 }
