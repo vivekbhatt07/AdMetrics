@@ -54,16 +54,18 @@ const Dashboard = () => {
             title="Ad Insights"
             titleProps={
               <Tooltip title="Product Ad Insights" placement="top-end">
-                <HelpOutlineSharp />
+                <HelpOutlineSharp sx={{ color: "#eee" }} />
               </Tooltip>
             }
           >
             {<Table bodyData={productsAdInsightData} />}
           </PrimaryContainer>
         </div>
-        <div className="basis-1/2">
+        <div className="basis-1/2 relative">
           <PrimaryContainer
             title="Ad Insights"
+            style={{ height: "100%" }}
+            bodyStyle={{ height: "100%" }}
             titleProps={
               <div className="flex flex-row gap-3">
                 {currentMetric === 0 && (
@@ -85,21 +87,30 @@ const Dashboard = () => {
                   </FormControl>
                 )}
                 <Tooltip title="User Ad Insights" placement="top-end">
-                  <HelpOutlineSharp />
+                  <HelpOutlineSharp sx={{ color: "#eee" }} />
                 </Tooltip>
               </div>
             }
           >
             {currentMetric === 0 && (
               <DoughnutProvider
-                style={{ width: "300px", height: "300px" }}
+                style={{ width: "300px", height: "300px", margin: "0 auto" }}
                 doughnutLabel={doughnutUserLabel}
                 doughnutData={doughnutUserData}
                 doughnutTitle={doughnutCategory}
               />
             )}
             {currentMetric === 1 && <Table bodyData={usersAdInsightData} />}
-            <div>
+            <div
+              className="bg-[#eee] inline-block rounded-full absolute bottom-[16px] right-[16px]"
+              onClick={() => {
+                if (currentMetric) {
+                  setCurrentMetric(0);
+                } else {
+                  setCurrentMetric(1);
+                }
+              }}
+            >
               <IconButton
                 sx={{
                   backgroundColor:
@@ -109,9 +120,6 @@ const Dashboard = () => {
                     backgroundColor:
                       currentMetric === 0 ? "#0096ff" : "transparent",
                   },
-                }}
-                onClick={() => {
-                  setCurrentMetric(0);
                 }}
               >
                 <DonutLargeSharp />
@@ -125,9 +133,6 @@ const Dashboard = () => {
                     backgroundColor:
                       currentMetric === 1 ? "#0096ff" : "transparent",
                   },
-                }}
-                onClick={() => {
-                  setCurrentMetric(1);
                 }}
               >
                 <TableChartOutlined />

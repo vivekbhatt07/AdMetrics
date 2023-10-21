@@ -6,11 +6,12 @@ const PrimaryContainer = ({
   titleProps,
   style,
   bodyStyle,
+  bodyClass,
   headStyle,
 }) => {
   return (
     <div
-      className="flex flex-col border border-[#ddd] rounded-sm"
+      className={`flex flex-col border border-[#ddd] rounded-sm bg-[#fff]`}
       style={{ ...style }}
     >
       <div
@@ -21,9 +22,13 @@ const PrimaryContainer = ({
         <h3 className="capitalize">{title}</h3>
         <div className="flex">{titleProps}</div>
       </div>
-      <div style={{ ...bodyStyle }}>{children}</div>
+      <div style={{ ...bodyStyle }} className={`${bodyClass}`}>
+        {children}
+      </div>
     </div>
   );
 };
 
 export default PrimaryContainer;
+
+// #dddddd
