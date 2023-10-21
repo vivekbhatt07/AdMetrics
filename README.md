@@ -1,8 +1,28 @@
-# React + Vite
+# SOCIOBEE
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Live Link - https://admetrics.netlify.app/
 
-Currently, two official plugins are available:
+A social media website where you can connect with your friends!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
+
+## INSTALLATION
+
+```
+1. git clone https://github.com/vivekbhatt07/AdMetrics
+2. cd AdMetrics
+3. npm install
+4. npm run dev
+```
+
+![Alt text](image.png)
+
+## Built with -
+
+- React JS
+- React Router v6
+- Tailwind CSS
+- Material UI
+- React Responsive
+- Material UI icons
+- Lottie React
