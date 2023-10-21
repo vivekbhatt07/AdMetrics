@@ -47,7 +47,7 @@ const MediaAdForm = () => {
           height: "100%",
         }}
         headStyle="border-0"
-        bodyClass="gap-4 p-4"
+        bodyClass="gap-4 p-4 pt-0"
       >
         <form className="mediaAdForm">
           <BasicInput

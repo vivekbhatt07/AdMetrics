@@ -9,7 +9,9 @@ const Header = () => {
   return (
     <header className="h-[8vh]" style={headerBoxShadowStyle}>
       <div className="flex justify-between px-8 py-4">
-        <h1 className="uppercase text-xl font-bold text-[#333d47]">app Logo</h1>
+        <h1 className="uppercase text-xl font-bold text-[#333d47]">
+          <a href="/">app Logo</a>
+        </h1>
         <nav className="flex gap-6">
           <NavLink to="/" className="uppercase font-medium">
             Dashboard
