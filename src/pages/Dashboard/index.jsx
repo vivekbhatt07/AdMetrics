@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { PageContainer } from "../../layout";
 import { PrimaryContainer } from "../../components/containers";
 import { DoughnutProvider, Table } from "../../components/metrics";
 import { usersAdInsightData, productsAdInsightData } from "../../data";
 import { Tooltip, IconButton } from "@mui/material";
+import { useMediaQuery } from "react-responsive";
 import {
   HelpOutlineSharp,
   DonutLargeSharp,
@@ -16,6 +17,8 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
 const Dashboard = () => {
+  const [toggle, setToggle] = useState(false);
+  const isDesktop = useMediaQuery({ minWidth: "780px" });
   const [currentMetric, setCurrentMetric] = useState(0);
 
   const [doughnutCategory, setDoughnutCategory] = React.useState("clicks");
@@ -46,9 +49,17 @@ const Dashboard = () => {
     (item) => item[doughnutCategory]
   );
 
+  useEffect(() => {
+    if (isDesktop) {
+      setToggle(true);
+    } else {
+      setToggle(false);
+    }
+  }, [isDesktop]);
+
   return (
     <PageContainer>
-      <div className="flex flex-row gap-8">
+      <div className="flex flex-col xl:flex-row gap-8">
         <div className="basis-1/2">
           <PrimaryContainer
             title="Ad Insights"
@@ -67,23 +78,25 @@ const Dashboard = () => {
             style={{ height: "100%" }}
             bodyStyle={{ height: "100%" }}
             titleProps={
-              <div className="flex flex-row gap-3">
+              <div className="flex flex-row gap-3 items-center">
                 {currentMetric === 0 && (
                   <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Age</InputLabel>
-                    <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
+                    <select
                       value={doughnutCategory}
                       label="Age"
                       onChange={handleChange}
+                      className="border-2 border-[#ddd] py-[0] px-2 focus:outline-0 focus:border-[#0096ff] transition-all rounded-md text-[#3f4851] capitalize"
                     >
                       {category.map((item) => (
-                        <MenuItem value={item} key={item}>
+                        <option
+                          value={item}
+                          key={item}
+                          className="text-[#000] capitalize"
+                        >
                           {item}
-                        </MenuItem>
+                        </option>
                       ))}
-                    </Select>
+                    </select>
                   </FormControl>
                 )}
                 <Tooltip title="User Ad Insights" placement="top-end">
@@ -94,7 +107,11 @@ const Dashboard = () => {
           >
             {currentMetric === 0 && (
               <DoughnutProvider
-                style={{ width: "300px", height: "300px", margin: "0 auto" }}
+                style={{
+                  width: toggle ? "420px" : "300px",
+                  height: toggle ? "420px" : "300px",
+                  margin: "0 auto",
+                }}
                 doughnutLabel={doughnutUserLabel}
                 doughnutData={doughnutUserData}
                 doughnutTitle={doughnutCategory}
@@ -102,7 +119,11 @@ const Dashboard = () => {
             )}
             {currentMetric === 1 && <Table bodyData={usersAdInsightData} />}
             <div
-              className="bg-[#eee] inline-block rounded-full absolute bottom-[16px] right-[16px]"
+              className={`bg-[#eee] flex rounded-full absolute ${
+                currentMetric === 0 && "bottom-[16px] right-[16px] flex-col"
+              } ${
+                currentMetric === 1 && "top-[8px] left-[50%] flex-row"
+              } xl:top-auto xl:left-auto xl:flex-row xl:bottom-[16px] xl:right-[16px]`}
               onClick={() => {
                 if (currentMetric) {
                   setCurrentMetric(0);
