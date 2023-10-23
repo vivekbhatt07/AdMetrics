@@ -1,9 +1,6 @@
 # ADMETRICS
 
 ## Live Link - https://admetrics.netlify.app/
-
-A social media website where you can connect with your friends!
-
 ---
 
 ## INSTALLATION
